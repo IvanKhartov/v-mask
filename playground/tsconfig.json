@@ -1,0 +1,11 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "baseUrl": ".",
+    "lib": ["ESNext", "ESNext.AsyncIterable"],
+    "isolatedModules": true,
+    "types": []
+  },
+  "exclude": ["node_modules"]
+}

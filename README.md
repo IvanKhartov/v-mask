@@ -3,6 +3,7 @@
 ---
 
 # :abcd: Vue input mask
+
 [![npm](https://img.shields.io/npm/v/v-mask.svg)](https://www.npmjs.com/package/v-mask)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/v-mask)
 [![npm](https://img.shields.io/npm/dm/v-mask.svg)](https://www.npmjs.com/package/v-mask)
@@ -29,15 +30,13 @@
 - https://jsfiddle.net/probil/c6fjjzn6/ (simple interactive playground with UMD)
 - https://v-mask-demo.netlify.com/ (just preview)
 
-
 ## :heavy_check_mark: Browser Support
 
-|![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![iOS Safari](https://raw.github.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/android-webview-beta/android-webview-beta_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png)
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 74+ :heavy_check_mark: | 66+ :heavy_check_mark:  | 12+ :heavy_check_mark: | 46+ :heavy_check_mark: | 17+ :heavy_check_mark: | 11+ :heavy_check_mark: | 12+ :heavy_check_mark: | 67+ :heavy_check_mark: | 8.2+ :heavy_check_mark:
+| ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![iOS Safari](https://raw.github.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/android-webview-beta/android-webview-beta_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png) |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| 74+ :heavy_check_mark:                                                                   | 66+ :heavy_check_mark:                                                                      | 12+ :heavy_check_mark:                                                                   | 46+ :heavy_check_mark:                                                                | 17+ :heavy_check_mark:                                                             | 11+ :heavy_check_mark:                                                                                                       | 12+ :heavy_check_mark:                                                                               | 67+ :heavy_check_mark:                                                                                                        | 8.2+ :heavy_check_mark:                                                                                               |
 
 We support only browsers with global usage statistics greater then 1%, last 2 version of each browser but not dead browsers. Library may work in older browser but we don't not guarantee that. You may need addition polyfills to make it work.
-
 
 ## :cd: Installation
 
@@ -56,11 +55,11 @@ import Vue from 'vue'
 
 // Prefered: as a plugin (directive + filter) + custom placeholders support
 import VueMask from 'v-mask'
-Vue.use(VueMask);
+Vue.use(VueMask)
 
 // Or as a directive-only
 import { VueMaskDirective } from 'v-mask'
-Vue.directive('mask', VueMaskDirective);
+Vue.directive('mask', VueMaskDirective)
 
 // Or only as a filter-only
 import { VueMaskFilter } from 'v-mask'
@@ -73,21 +72,22 @@ Vue.filter('VMask', VueMaskFilter)
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
 <script>
-// As a plugin
-Vue.use(VueMask.VueMaskPlugin);
+  // As a plugin
+  Vue.use(VueMask.VueMaskPlugin)
 
-// Or as a directive
-Vue.directive('mask', VueMask.VueMaskDirective);
+  // Or as a directive
+  Vue.directive('mask', VueMask.VueMaskDirective)
 </script>
 ```
 
 ## :rocket: Usage
 
 ```html
-<input type="text" v-mask="'####-##'" v-model="myInputModel">
+<input type="text" v-mask="'####-##'" v-model="myInputModel" />
 <!-- OR -->
-<input type="text" v-mask="variableWithMask" v-model="myInputModel">
+<input type="text" v-mask="variableWithMask" v-model="myInputModel" />
 ```
+
 **Notice:** `v-model` is required starting from `v1.1.0`, because [a lot](https://github.com/probil/v-mask/issues/16) [of](https://github.com/probil/v-mask/issues/30) [bugs](https://github.com/probil/v-mask/issues/29) with HTMLElement event listeners and sync with Vue internals.
 
 There is no reason to support using this lib for using without `v-model` but open the door for using on [custom inputs](http://vuejs.org/v2/guide/components.html#Form-Input-Components-using-Custom-Events).
@@ -108,12 +108,12 @@ Library provides several ways to apply the mask.
 
 The first and the easiest one is to use default placeholders.
 
-
 ### Default placeholders
 
 This approach is good for simple cases. No configuration is required.
 
 `app.js`:
+
 ```js
 import Vue from 'vue'
 import VueMask from 'v-mask'
@@ -121,78 +121,88 @@ Vue.use(VueMask)
 ```
 
 `<your_component>.vue`:
+
 ```vue
 <template>
-  <input type="text" v-mask="'####-##'" v-model="myInputModel">
+  <input type="text" v-mask="'####-##'" v-model="myInputModel" />
 </template>
 <script>
-  export default {
-    data: () => ({
-      myInputModel: ''
-    })
-  }
+export default {
+  data: () => ({
+    myInputModel: ''
+  })
+}
 </script>
 ```
+
 Entering `56f473d4` in the input field will produce value `5647-34` in `myInputModel` variable.
 
 Here is a list placeholders you can utilize by default:
 
 | Placeholder | Format                         |
-|-------------|--------------------------------|
+| ----------- | ------------------------------ |
 | #           | Number (0-9)                   |
 | A           | Letter in any case (a-z,A-Z)   |
 | N           | Number or letter (a-z,A-Z,0-9) |
 | X           | Any symbol                     |
 | ?           | Optional (next character)      |
 
-
 ### Custom placeholders
+
 While default placeholders are easy to use and straightforward, in reality we have to deal with more complex cases where validation can be tricky and unpredictable. In such cases it makes sense to define custom placeholders specific to the project or the domain.
 
 To define them you should pass them as an object while installing plugin. Where:
-* `key` is the character in a mask
-* `value` is regular expression used to verify entered symbol
+
+- `key` is the character in a mask
+- `value` is regular expression used to verify entered symbol
 
 You can disable any default placeholder by passing placeholder as a key and `null` as a value.
 
 Any valid string character can be used as a placeholder (e.g. Cyrillic or Arabic)
 
 `app.js`:
+
 ```js
 import Vue from 'vue'
 import VueMask from 'v-mask'
 
-Vue.use(VueMask, {   // (!) custom placeholders support requires registration as a plugin to
+Vue.use(VueMask, {
+  // (!) custom placeholders support requires registration as a plugin to
   placeholders: {
-    '#': null,       // passing `null` removes default placeholder, so `#` is treated as character
-    D: /\d/,         // define new placeholder
-    Я: /[\wа-яА-Я]/, // cyrillic letter as a placeholder
+    '#': null, // passing `null` removes default placeholder, so `#` is treated as character
+    D: /\d/, // define new placeholder
+    Я: /[\wа-яА-Я]/ // cyrillic letter as a placeholder
   }
 })
 ```
+
 `<your_component>.vue`:
+
 ```vue
 <template>
-  <input type="text" v-mask="'###-DDD-###-DDD'" v-model="myInputModel">
+  <input type="text" v-mask="'###-DDD-###-DDD'" v-model="myInputModel" />
   <!-- or with filter -->
   <span>{{ 123456 | VMask(mask) }}</span>
 </template>
 <script>
-  export default {
-    data: () => ({
-      myInputModel: ''
-    })
-  }
+export default {
+  data: () => ({
+    myInputModel: ''
+  })
+}
 </script>
 ```
+
 Entering `123456` in that input field will produce value `###-123-###-456` in `myInputModel` variable.
 
 ### Array of RegExp
+
 In some cases you might not want to define global placeholders either because you are dealing with unique input or you are facing conflicts for placeholders in several places.
 
 In such cases you can supply array of per-char regular expressions or static characters to `v-mask`.
 
 `app.js`:
+
 ```js
 import Vue from 'vue'
 import VueMask from 'v-mask'
@@ -200,21 +210,23 @@ Vue.use(VueMask)
 ```
 
 `<your_component>.vue`:
+
 ```vue
 <template>
-  <input type="text" v-mask="mask" v-model="myInputModel">
+  <input type="text" v-mask="mask" v-model="myInputModel" />
   <!-- or with filter -->
   <span>{{ 5555551234 | VMask(mask) }}</span>
 </template>
 <script>
-  export default {
-    data: () => ({
-      mask: ['(', /\d/, /\d/, /\d/, ') ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
-      myInputModel: ''
-    })
-  }
+export default {
+  data: () => ({
+    mask: ['(', /\d/, /\d/, /\d/, ') ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/],
+    myInputModel: ''
+  })
+}
 </script>
 ```
+
 In this example entering `5555551234` in the input field will produce value `(555) 555-1234` in `myInputModel` variable.
 
 **Notice**: Keep in mind that library always verifies _one_ character per regular expression. Trying to verify multiple charters in the same RegExp won't work.
@@ -229,6 +241,7 @@ This approach is super powerful but also more complex to write and understand so
 The function will be given a value from the input. It should return array of per-char regular expressions & static characters:
 
 `app.js`:
+
 ```js
 import Vue from 'vue'
 import VueMask from 'v-mask'
@@ -236,48 +249,45 @@ Vue.use(VueMask)
 ```
 
 `<your_component>.vue`:
+
 ```vue
 <template>
-  <input type="text" v-mask="timeRangeMask" v-model="myInputModel" placeholder="00:00-23:59">
+  <input type="text" v-mask="timeRangeMask" v-model="myInputModel" placeholder="00:00-23:59" />
   <!-- or with filter -->
   <span>{{ '02532137' | VMask(timeRangeMask) }}</span>
 </template>
 <script>
-  /**
-   * Generate a time mask based on input value (23:59)
-   * @param {string} value
-   */
-  export function timeMask(value) {
-    const hours = [
-      /[0-2]/,
-      value.charAt(0) === '2' ? /[0-3]/ : /[0-9]/,
-    ];
-    const minutes = [/[0-5]/, /[0-9]/];
-    return value.length > 2
-      ? [...hours, ':', ...minutes]
-      : hours;
-  }
+/**
+ * Generate a time mask based on input value (23:59)
+ * @param {string} value
+ */
+export function timeMask(value) {
+  const hours = [/[0-2]/, value.charAt(0) === '2' ? /[0-3]/ : /[0-9]/]
+  const minutes = [/[0-5]/, /[0-9]/]
+  return value.length > 2 ? [...hours, ':', ...minutes] : hours
+}
 
-  /**
-   * Generate a time range mask based on input value (00:00-23:59)
-   * @param {string} value
-   */
-  export function timeRangeMask(value) {
-    const numbers = value.replace(/[^0-9]/g, '');
-    if (numbers.length > 4) {
-      return [...timeMask(numbers.substring(0, 4)), '-', ...timeMask(numbers.substring(4))];
-    }
-    return [...timeMask(numbers)];
+/**
+ * Generate a time range mask based on input value (00:00-23:59)
+ * @param {string} value
+ */
+export function timeRangeMask(value) {
+  const numbers = value.replace(/[^0-9]/g, '')
+  if (numbers.length > 4) {
+    return [...timeMask(numbers.substring(0, 4)), '-', ...timeMask(numbers.substring(4))]
   }
+  return [...timeMask(numbers)]
+}
 
-  export default {
-    data: () => ({
-      timeRangeMask,
-      myInputModel: ''
-    })
-  }
+export default {
+  data: () => ({
+    timeRangeMask,
+    myInputModel: ''
+  })
+}
 </script>
 ```
+
 In this example entering `02532137` in the input field will produce valid time range `02:53-21:37` in `myInputModel` variable.
 
 ### Text Mask Addons
@@ -287,6 +297,7 @@ Library supports [Text Mask Addons](https://www.npmjs.com/package/text-mask-addo
 The usage is simple. Configure the addon as you want and pass the result to the `v-mask` as you would to `text-mask-core`.
 
 `app.js`:
+
 ```js
 import Vue from 'vue'
 import VueMask from 'v-mask'
@@ -294,29 +305,32 @@ Vue.use(VueMask)
 ```
 
 `<your_component>.vue`:
+
 ```vue
 <template>
-  <input type="text" v-mask="currencyMask" v-model="myInputModel" placeholder="$100.00">
+  <input type="text" v-mask="currencyMask" v-model="myInputModel" placeholder="$100.00" />
   <!-- or with filter -->
   <span>{{ '100' | VMask(currencyMask) }}</span>
 </template>
 <script>
-  import createNumberMask from 'text-mask-addons/dist/createNumberMask';
-  const currencyMask = createNumberMask({
-    prefix: '$',
-    allowDecimal: true,
-    includeThousandsSeparator: true,
-    allowNegative: false,
-  });
-  export default {
-    data: () => ({
-      currencyMask,
-      myInputModel: ''
-    })
-  }
+import createNumberMask from 'text-mask-addons/dist/createNumberMask'
+const currencyMask = createNumberMask({
+  prefix: '$',
+  allowDecimal: true,
+  includeThousandsSeparator: true,
+  allowNegative: false
+})
+export default {
+  data: () => ({
+    currencyMask,
+    myInputModel: ''
+  })
+}
 </script>
 ```
+
 In this example:
+
 - entering `1000000.00` in the input field will produce `$1,000,000.00` in `myInputModel` variable
 - while entering `100` in the input field will produce `$100`
 

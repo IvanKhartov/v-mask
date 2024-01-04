@@ -1,4 +1,5 @@
 # :abcd: Vue input mask
+
 [![npm](https://img.shields.io/npm/v/v-mask.svg)](https://www.npmjs.com/package/v-mask)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/v-mask)
 [![npm](https://img.shields.io/npm/dm/v-mask.svg)](https://www.npmjs.com/package/v-mask)
@@ -25,15 +26,13 @@
 - https://jsfiddle.net/probil/c6fjjzn6/ ( playground interativo simples com UMD)
 - https://v-mask-demo.netlify.com/ ( Demo v-mask )
 
-
 ## :heavy_check_mark: Navegadores suportados
 
-|![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![iOS Safari](https://raw.github.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/android-webview-beta/android-webview-beta_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png)
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 74+ :heavy_check_mark: | 66+ :heavy_check_mark:  | 12+ :heavy_check_mark: | 46+ :heavy_check_mark: | 17+ :heavy_check_mark: | 11+ :heavy_check_mark: | 12+ :heavy_check_mark: | 67+ :heavy_check_mark: | 8.2+ :heavy_check_mark:
+| ![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) | ![iOS Safari](https://raw.github.com/alrra/browser-logos/master/src/safari-ios/safari-ios_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/android-webview-beta/android-webview-beta_48x48.png) | ![Android WebView](https://raw.github.com/alrra/browser-logos/master/src/samsung-internet/samsung-internet_48x48.png) |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| 74+ :heavy_check_mark:                                                                   | 66+ :heavy_check_mark:                                                                      | 12+ :heavy_check_mark:                                                                   | 46+ :heavy_check_mark:                                                                | 17+ :heavy_check_mark:                                                             | 11+ :heavy_check_mark:                                                                                                       | 12+ :heavy_check_mark:                                                                               | 67+ :heavy_check_mark:                                                                                                        | 8.2+ :heavy_check_mark:                                                                                               |
 
 Suportamos apenas navegadores com estatísticas de uso global superiores a 1%, última versão 2 de cada navegador, mas não navegadores inativos. A biblioteca pode funcionar em navegadores antigos, mas não garantimos isso. Você pode precisar de polyfills adicionais para fazê-lo funcionar.
-
 
 ## :cd: Instalação
 
@@ -52,11 +51,11 @@ import Vue from 'vue'
 
 // usar o plugin
 import VueMask from 'v-mask'
-Vue.use(VueMask);
+Vue.use(VueMask)
 
 // usar a diretiva
 import { VueMaskDirective } from 'v-mask'
-Vue.directive('mask', VueMaskDirective);
+Vue.directive('mask', VueMaskDirective)
 
 // usar apenas o filtro
 import { VueMaskFilter } from 'v-mask'
@@ -69,27 +68,29 @@ Vue.filter('VMask', VueMaskFilter)
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
 <script>
-// usar o plugin
-Vue.use(VueMask.VueMaskPlugin);
+  // usar o plugin
+  Vue.use(VueMask.VueMaskPlugin)
 
-// usar a diretiva
-Vue.directive('mask', VueMask.VueMaskDirective);
+  // usar a diretiva
+  Vue.directive('mask', VueMask.VueMaskDirective)
 </script>
 ```
 
 ## :rocket: Utilizando
 
 ```html
-<input type="text" v-mask="'####-##'" v-model="myInputModel">
+<input type="text" v-mask="'####-##'" v-model="myInputModel" />
 <!-- OU -->
-<input type="text" v-mask="nameOfVariableWithMask" v-model="myInputModel">
+<input type="text" v-mask="nameOfVariableWithMask" v-model="myInputModel" />
 ```
+
 **Notice:** `v-model` é necessário a partir da versão `v1.1.0`, porque acabam [existindo](https://github.com/probil/v-mask/issues/16) [muitos](https://github.com/probil/v-mask/issues/30) [bugs](https://github.com/probil/v-mask/issues/29)
 com ouvintes de eventos HTMLElement e sincronização dos mesmos com o Vue.
 
 Não há razão para suportar o uso dessa lib para uso sem o modelo `v-model`, mas abra a porta para uso em [inputs personalizados](http://vuejs.org/v2/guide/components.html#Form-Input-Components-using-Custom-Events).
 
 ### Utilizando o filtro
+
 ```html
 <span>{{ '9999999999' | VMask('(###) ###-####') }}</span>
 ```
@@ -99,7 +100,7 @@ Não há razão para suportar o uso dessa lib para uso sem o modelo `v-model`, m
 Lista de simbolos reservados para máscara:
 
 | Value | Format                               |
-|-------|--------------------------------------|
+| ----- | ------------------------------------ |
 | #     | Números (0-9)                        |
 | A     | Caractere de qualquer case (a-z,A-Z) |
 | N     | Caractere ou Números                 |
@@ -133,7 +134,6 @@ Este plugin segue [semantic versioning](http://semver.org/).
 Estamos usando [GitHub Releases](https://github.com/probil/v-mask/releases).
 
 ## :beers: Contribuições
-
 
 Estamos muito felizes em ver contribuições em potencial, então não hesite. Se você tiver alguma sugestão, ideia ou problema, sinta-se à vontade para adicionar um novo [issue](https://github.com/probil/v-mask/issues), mas primeiro verifique se a sua pergunta não repete as anteriores.
 

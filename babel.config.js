@@ -5,14 +5,10 @@ module.exports = {
       {
         modules: false,
         targets: {
-          browsers: [
-            '> 1%',
-            'last 2 versions',
-            'not dead',
-          ],
-        },
-      },
-    ],
+          browsers: ['> 1%', 'last 2 versions', 'not dead']
+        }
+      }
+    ]
   ],
   comments: false,
   env: {
@@ -22,11 +18,11 @@ module.exports = {
           '@babel/preset-env',
           {
             targets: {
-              node: 'current',
-            },
-          },
-        ],
-      ],
-    },
-  },
-};
+              node: 'current'
+            }
+          }
+        ]
+      ]
+    }
+  }
+}
