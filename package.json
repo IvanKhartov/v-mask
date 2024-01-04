@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/probil/v-mask.git"
+    "url": "git+https://github.com/upstars-global/vue3-mask.git"
   },
   "keywords": [
     "vue.js",
@@ -27,9 +27,9 @@
   "author": "Max Lyashuk <m_lyashuk@ukr.net>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/probil/v-mask/issues"
+    "url": "https://github.com/upstars-global/vue3-mask/issues"
   },
-  "homepage": "https://github.com/probil/v-mask#readme",
+  "homepage": "https://github.com/upstars-global/vue3-mask#readme",
   "devDependencies": {
     "@babel/core": "^7.23.7",
     "@babel/preset-env": "^7.23.7",
@@ -58,5 +58,13 @@
     "text-mask-core": "5.1.2",
     "typescript": "^5.3.3",
     "vue": "^3.4.5"
-  }
+  },
+  "files": [
+    "dist",
+    "src",
+    "index.d.ts",
+    "tsconfig.json",
+    "README.md",
+    "LICENSE"
+  ]
 }
