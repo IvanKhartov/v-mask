@@ -20,4 +20,4 @@ export interface CreateOptions {
   remove: OptionsRemove
   partiallyUpdate: OptionsPartiallyUpdate
 }
-export type { Directive, Plugin } from '@vue/runtime-core'
+export type { Directive, Plugin } from 'vue'
